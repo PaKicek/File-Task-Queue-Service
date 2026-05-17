@@ -34,6 +34,12 @@
 
 ## Сборка и запуск
 
+### Требования
+
+- JDK 21 или выше
+- Gradle 8.10
+- Docker и Docker Compose (для запуска PostgreSQL и самого приложения)
+
 ### Запуск с Docker Compose
 
 ```bash
