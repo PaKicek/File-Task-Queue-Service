@@ -1,0 +1,12 @@
+.git
+.gradle
+.idea
+build
+gradle/wrapper
+*.iml
+*.log
+.DS_Store
+README.md
+docker-compose.yml
+.gitignore
+.env

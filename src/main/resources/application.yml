@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: file-task-queue-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/task_queue_db
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+
+task-queue:
+  max-concurrent-tasks: 5
+  retry:
+    enabled: true
+    max-attempts: 3
+    backoff-delay-ms: 5000
+  scheduler:
+    enabled: true
+    stuck-task-timeout-minutes: 30
+    check-interval-ms: 60000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    org.pakicek: DEBUG
